@@ -27,4 +27,35 @@ Calculate descriptve statistics for monthly revenue by product category in 2017
 | 3     | beleza_saude              | 12561.32 | 40146.309166666664 | 79120.4  | 18797.84442421      |
 | ...     | ...             | ...  | ...           | ... | ...      |
 
+## <p align = "center">:pushpin: [Exercise #3](https://github.com/AndreRosaLopes/SQL_public_portfolio/blob/main/olist_performance_of_top_5_sellers.pgsql): WINDOWS function practice </p>
 
+Analyse how the top 5 seller of 2017 are performance along the year 2018:
+For each month, show:
+ * amount revenue by currently MONTH
+ * the running total of year
+ * compare the currently revenue with 12 monthy ago
+
+Let's use windows function
+
+What we need?
+- price from table itens
+- seller_id from table itens (unhappyly we don't have the seller name, I guess it because this is a confidential information)
+
+<b>Please be aware that for some months sellers have not been able to earn their revenue.
+In that case the **LAG function** will not bring the correct value!! </b>
+I used self-join in that case...
+
+![image](https://github.com/AndreRosaLopes/SQL_public_portfolio/assets/135834696/41028e6e-7ec1-41d2-8ce9-6aa5ef3ea605)
+
+### :pencil2:<i> Answer</i>:
+37 rows returned
+
+| seller_id                         | date                  | currently_monthly_revenue | running_total | compare_monthly_revenue |
+|-----------------------------------|-----------------------|---------------------------|---------------|-------------------------|
+| 46dc3b2cc0980fb8ec44634e21d2718e | 2018-01-01 00:00:00   | 3819.83                   | 3819.83       | 3029.87                 |
+| 46dc3b2cc0980fb8ec44634e21d2718e | 2018-02-01 00:00:00   | 1389.94                   | 5209.77       | 3339.93                 |
+| 46dc3b2cc0980fb8ec44634e21d2718e | 2018-03-01 00:00:00   | 3119.94                   | 8329.71       | 2719.88                 |
+| 46dc3b2cc0980fb8ec44634e21d2718e | 2018-04-01 00:00:00   | 929.95                    | 9259.66       | 1698.85                 |
+| 46dc3b2cc0980fb8ec44634e21d2718e | 2018-05-01 00:00:00   | 2049.90                   | 11309.56      | 5509.70                 |
+| 46dc3b2cc0980fb8ec44634e21d2718e | 2018-06-01 00:00:00   | 2599.87                   | 13909.43      | 9009.60                 |
+| ... | ...   | ...                   | ...      | ...                |
