@@ -6,13 +6,13 @@
 -- -> | Product_Category | Minimum | Avarage | Maximum | Standard_Deviation
 
 -- What we have to do?
--- We need to sum the (price * quantity) by product category and by month
--- So, we need to join information from table:
+-- First, we need to sum the (price * quantity) by product category and by month
+-- So, we need to join information from tables:
     -- * orders: order_purchase_timestamp
     -- * itens: price
     -- * products: product_category_name
-    -- * where is the information about quantity???
--- Then, calculate the asked statistics by month and by 
+    -- * Do we have information about quantity??? Where is it? *
+-- Then, calculate the asked statistics by month and by seller
 
 -- But we don't have the direct information of quantity.
     -- So, let suppose that each order calls as many itens that are
