@@ -1,6 +1,6 @@
 # SQL_public_portfolio
 
-- SQL olist data base from [kaggle](https://www.kaggle.com/code/sepidehsoleimanian/olist-project).
+- SQL olist data base from [kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
 ## <p align = "center">:pushpin: [Exercise #1](https://github.com/AndreRosaLopes/SQL_public_portfolio/blob/main/Creating%20the%20data%20base%20olist.pgsql): setting a postgreSQL data base </p>
 
@@ -17,6 +17,15 @@ Calculate descriptve statistics for monthly revenue by product category in 2017
 | ...     | ...             | ...  | ...           | ... | ...      |
 
 ### :pencil2:<i> Answer</i>:
+
+What we have to do?
+
+First, we need to sum the (price * quantity) by product category and by month. So, we need to join information from tables:
+* orders: order_purchase_timestamp
+* itens: price
+* products: product_category_name
+* Do we have information about quantity??? Where is it? (we have to check some hypothesis)
+Then, calculate the asked statistics by month and by seller
 
 10 rows returned
 
@@ -35,6 +44,7 @@ For each month, show:
  * the running total of year
  * compare the currently revenue with 12 monthy ago
 
+### :pencil2:<i> Answer</i>:
 Let's use windows function
 
 What we need?
@@ -47,7 +57,6 @@ I used self-join in that case...
 
 ![image](https://github.com/AndreRosaLopes/SQL_public_portfolio/assets/135834696/41028e6e-7ec1-41d2-8ce9-6aa5ef3ea605)
 
-### :pencil2:<i> Answer</i>:
 37 rows returned
 
 | seller_id                         | date                  | currently_monthly_revenue | running_total | compare_monthly_revenue |
